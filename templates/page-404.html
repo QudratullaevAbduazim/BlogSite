@@ -1,0 +1,136 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="msapplication-TileColor" content="#0E0E0E">
+    <meta name="template-color" content="#0E0E0E">
+    <meta name="description" content="Personal Blog">
+
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'imgs/template/favicon.svg' %}">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <title>{% block title %}GenZ - Personal Blog{% endblock %}</title>
+  </head>
+  <body>
+    <div id="preloader-active">
+      <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="preloader-inner position-relative">
+          <div class="text-center">
+            <img class="mb-10" src="{% static 'imgs/template/favicon.svg' %}" alt="GenZ">
+            <div class="preloader-dots"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <header class="header sticky-bar">
+      <div class="container">
+        <div class="row align-items-start">
+          <div class="col-xl-1"></div>
+          <div class="col-xl-10 col-lg-12">
+            <div class="main-header">
+              <div class="header-logo">
+                <a class="d-flex" href="{% url 'index' %}">
+                  <img class="logo-night" alt="GenZ" src="{% static 'imgs/template/logo.svg' %}">
+                  <img class="d-none logo-day" alt="GenZ" src="{% static 'imgs/template/logo-day.svg' %}">
+                </a>
+              </div>
+              <div class="header-nav">
+                <nav class="nav-main-menu d-none d-xl-block">
+                  <ul class="main-menu">
+                    <li><a class="active" href="{% url 'index' %}">Home</a></li>
+                    <li><a class="color-gray-500" href="{% url 'portfolio' %}">Portfolio</a></li>
+                    <li><a class="color-gray-500" href="{% url 'contact' %}">Contact</a></li>
+                  </ul>
+                </nav>
+                <div class="burger-icon burger-icon-white">
+                    <span class="burger-icon-top"></span>
+                    <span class="burger-icon-mid"></span>
+                    <span class="burger-icon-bottom"></span>
+                </div>
+              </div>
+              <div class="header-right text-end">
+                <a class="btn btn-linear d-none d-sm-inline-block hover-up" href="{% url 'login' %}">Login</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="mobile-header-active mobile-header-wrapper-style perfect-scrollbar bg-gray-900">
+      <div class="mobile-header-wrapper-inner">
+        <div class="mobile-header-content-area">
+          <div class="mobile-logo border-gray-800">
+            <a class="d-flex" href="{% url 'index' %}">
+              <img src="{% static 'imgs/template/logo.svg' %}" alt="GenZ">
+            </a>
+          </div>
+          <div class="perfect-scroll">
+            <div class="mobile-menu-wrap mobile-header-border">
+              <nav class="mt-15">
+                <ul class="mobile-menu font-heading">
+                  <li><a href="{% url 'index' %}">Home</a></li>
+                  <li><a href="{% url 'portfolio' %}">Portfolio</a></li>
+                  <li><a href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% block content %}
+    {% endblock %}
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-1 bg-gray-850 border-gray-800">
+          <div class="row">
+            <div class="col-lg-4 mb-30">
+              <a href="{% url 'index' %}">
+                <img class="logo-night" src="{% static 'imgs/template/logo.svg' %}" alt="GenZ">
+              </a>
+              <p class="mb-20 mt-20 text-sm color-gray-500">Abduazim Qudratullaev - Personal Blog & Portfolio.</p>
+            </div>
+            <div class="col-lg-4 mb-30">
+              <h6 class="text-lg mb-30 color-white">Address</h6>
+              <p class="text-sm color-gray-500">Tashkent, Uzbekistan</p>
+            </div>
+            <div class="col-lg-4 mb-30">
+              <h4 class="text-lg mb-30 color-white">Newsletter</h4>
+              <div class="form-newsletters mt-15">
+                <form action="#">
+                  <div class="form-group">
+                    <input class="input-email border-gray-500" type="email" placeholder="Email address">
+                  </div>
+                  <button class="btn btn-linear mt-20" type="button">Subscribe</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="progressCounter progressScroll hover-up hover-neon-2">
+      <div class="progressScroll-border">
+        <div class="progressScroll-circle"><span class="progressScroll-text"><i class="fi-rr-arrow-small-up"></i></span></div>
+      </div>
+    </div>
+
+    <script src="{% static 'js/vendors/modernizr-3.6.0.min.js' %}"></script>
+    <script src="{% static 'js/vendors/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'js/vendors/jquery-migrate-3.3.0.min.js' %}"></script>
+    <script src="{% static 'js/vendors/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/vendors/waypoints.js' %}"></script>
+    <script src="{% static 'js/vendors/wow.js' %}"></script>
+    <script src="{% static 'js/vendors/text-type.js' %}"></script>
+    <script src="{% static 'js/vendors/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'js/vendors/jquery.progressScroll.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+  </body>
+</html>

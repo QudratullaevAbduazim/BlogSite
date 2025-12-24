@@ -1,0 +1,121 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="msapplication-TileColor" content="#0E0E0E">
+    <meta name="template-color" content="#0E0E0E">
+    <meta name="description" content="Personal Blog">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'imgs/template/favicon.svg' %}">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <title>{% block title %}Genz - Personal Blog{% endblock title %}</title>
+  </head>
+  <body>
+    <div id="preloader-active">
+      <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="preloader-inner position-relative">
+          <div class="text-center">
+            <img class="mb-10" src="{% static 'imgs/template/favicon.svg' %}" alt="GenZ">
+            <div class="preloader-dots"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <header class="header sticky-bar bg-gray-900">
+      <div class="container">
+        <div class="main-header">
+          <div class="header-logo">
+            <a class="d-flex" href="{% url 'index' %}">
+              <img class="logo-night" alt="GenZ" src="{% static 'imgs/template/logo.svg' %}">
+              <img class="d-none logo-day" alt="GenZ" src="{% static 'imgs/template/logo-day.svg' %}">
+            </a>
+          </div>
+          <div class="header-nav">
+            <nav class="nav-main-menu d-none d-xl-block">
+              <ul class="main-menu">
+                <li><a class="active" href="{% url 'index' %}">Home</a></li>
+                <li><a class="color-gray-500" href="{% url 'portfolio' %}">Portfolio</a></li>
+                <li><a class="color-gray-500" href="{% url 'contact' %}">Contact</a></li>
+                <li class="has-children"><a class="color-gray-500" href="#">Pages</a>
+                  <ul class="sub-menu two-col">
+                    <li><a class="color-gray-500" href="{% url 'login' %}">Login</a></li>
+                    <li><a class="color-gray-500" href="{% url 'signup' %}">Signup</a></li>
+                    <li><a class="color-gray-500" href="{% url 'page_404' %}">Page 404</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+            <div class="burger-icon burger-icon-white">
+              <span class="burger-icon-top"></span>
+              <span class="burger-icon-mid"></span>
+              <span class="burger-icon-bottom"></span>
+            </div>
+          </div>
+          <div class="header-right text-end">
+            <div class="switch-button">
+              <div class="form-check form-switch">
+                <input class="form-check-input" id="flexSwitchCheckChecked" type="checkbox" role="switch" checked="">
+              </div>
+            </div>
+            <a class="btn btn-linear d-none d-sm-inline-block hover-up hover-shadow" href="{% url 'signup' %}">Subscribe</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    {% block content %}
+    {% endblock content %}
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-1 bg-gray-850 border-gray-800">
+          <div class="row">
+            <div class="col-lg-4 mb-30">
+              <a class="wow animate__animated animate__fadeInUp" href="{% url 'index' %}">
+                <img class="logo-night" src="{% static 'imgs/template/logo.svg' %}" alt="Genz">
+              </a>
+              <p class="mb-20 mt-20 text-sm color-gray-500">Personal Blog & Portfolio Template.</p>
+            </div>
+            <div class="col-lg-4 mb-30">
+              <h6 class="text-lg mb-30 color-white">Quick Links</h6>
+              <ul class="menu-footer">
+                <li><a class="color-gray-500" href="{% url 'index' %}">Home</a></li>
+                <li><a class="color-gray-500" href="{% url 'portfolio' %}">Portfolio</a></li>
+                <li><a class="color-gray-500" href="{% url 'contact' %}">Contact Us</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-4 mb-30">
+              <h4 class="text-lg mb-30 color-white">Newsletter</h4>
+              <form action="#">
+                <div class="form-group">
+                  <input class="input-email border-gray-500" type="email" placeholder="Email address">
+                </div>
+                <button class="btn btn-linear mt-20">Subscribe</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="progressCounter progressScroll hover-up hover-neon-2">
+      <div class="progressScroll-border">
+        <div class="progressScroll-circle"><span class="progressScroll-text"><i class="fi-rr-arrow-small-up"></i></span></div>
+      </div>
+    </div>
+
+    <script src="{% static 'js/vendors/modernizr-3.6.0.min.js' %}"></script>
+    <script src="{% static 'js/vendors/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'js/vendors/jquery-migrate-3.3.0.min.js' %}"></script>
+    <script src="{% static 'js/vendors/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/vendors/waypoints.js' %}"></script>
+    <script src="{% static 'js/vendors/wow.js' %}"></script>
+    <script src="{% static 'js/vendors/text-type.js' %}"></script>
+    <script src="{% static 'js/vendors/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'js/vendors/jquery.progressScroll.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+  </body>
+</html>

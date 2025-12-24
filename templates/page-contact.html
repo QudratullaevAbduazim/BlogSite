@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Genz - Contact Us{% endblock %}
+
+{% block content %}
+<main class="main">
+  <div class="cover-home3">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-10 col-lg-12 m-auto">
+          <div class="text-center mt-70">
+            <h1 class="color-linear d-inline-block mb-30">Contact Us</h1>
+            <p class="text-xl color-gray-500">
+              We are a creative and dedicated group of individuals who love web development<br class="d-none d-lg-block">
+              almost as much as we love our customers. We are passionate team with the mission for<br class="d-none d-lg-block">
+              achieving the perfection in web design.
+            </p>
+          </div>
+          
+          <div class="text-center mt-30">
+            <div class="d-inline-block support text-start">(48) 654-430-309<br>(01) 6532-430-309</div>
+            <div class="d-inline-block location text-start">contact@genz.com<br>sales@genz.com</div>
+            <div class="d-inline-block plane text-start">11567 E Broadview Dr<br>Colorado(CO), 80117</div>
+          </div>
+
+          <div class="box-map mt-70 mb-50">
+            <iframe class="google-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001!2d69.2401!3d41.3111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDE4JzQwLjAiTiA2OcKwMTQnMjQuNCJF!5e0!3m2!1suz!2s!4v1625000000000!5m2!1suz!2s" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+
+          <div class="form-contact">
+            <div class="text-center">
+              <h3 class="color-linear d-inline-block mb-10">Drop Us a Line</h3>
+              <p class="text-xs color-gray-500">Your email address will not be published. Required fields are marked *</p>
+            </div>
+            <div class="row mt-50">
+              <form action="#" method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                          <input class="form-control bg-gray-850 border-gray-800 color-gray-500" type="text" placeholder="Your name *" required>
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <input class="form-control bg-gray-850 border-gray-800 color-gray-500" type="email" placeholder="Email *" required>
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <input class="form-control bg-gray-850 border-gray-800 color-gray-500" type="text" placeholder="Phone number *">
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <input class="form-control bg-gray-850 border-gray-800 color-gray-500" type="text" placeholder="Subject *">
+                        </div>
+                      </div>
+                      <div class="col-lg-12">
+                        <div class="form-group">
+                          <textarea class="form-control bg-gray-850 border-gray-800 color-gray-500" rows="5" placeholder="Message *" required></textarea>
+                        </div>
+                      </div>
+                      <div class="col-lg-12">
+                        <div class="text-center mb-50">
+                          <button type="submit" class="btn btn-linear btn-radius-8 hover-up">
+                            Send Message
+                            <i class="fi-rr-arrow-small-right"></i>
+                          </button>
+                        </div>
+                      </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

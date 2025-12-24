@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<main class="main">
+  <div class="cover-home3">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-1"></div>
+        <div class="col-xl-10 col-lg-12">
+          
+          <div class="row align-items-end mt-50">
+            <div class="col-lg-7 mb-20">
+              <div class="d-inline-block position-relative">
+                <h1 class="color-white mb-20 color-linear wow animate__animated animate__fadeIn">
+                  {{ category.name }}
+                </h1>
+                <span class="btn btn-linear-small btn-number-arts">{{ posts.count }} ta maqola</span>
+              </div>
+              <p class="color-gray-500 text-base wow animate__animated animate__fadeIn">
+                "{{ category.name }}" bo'limidagi barcha maqolalar va yangiliklar.
+              </p>
+            </div>
+            
+            <div class="col-lg-5 mb-20 text-start text-lg-end">
+              <div class="box-breadcrumbs wow animate__animated animate__fadeIn">
+                <ul class="breadcrumb">
+                  <li><a class="home" href="{% url 'index' %}">Home</a></li>
+                  <li><a href="#">Kategoriya</a></li>
+                  <li><span>{{ category.name }}</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="border-bottom border-gray-800 mt-10 mb-30"></div>
+            </div>
+          </div>
+
+          <div class="mt-50 mb-50">
+            <div class="row mt-50 mb-10">
+              {% for post in posts %}
+              <div class="col-lg-4 col-md-6"> <div class="card-blog-1 hover-up wow animate__animated animate__fadeIn mb-30">
+                  <div class="card-image mb-20">
+                    <a href="{% url 'post_detail' post.pk %}">
+                      {% if post.image %}
+                        <img src="{{ post.image.url }}" alt="{{ post.title }}" class="bdrd-16">
+                      {% endif %}
+                    </a>
+                  </div>
+                  <div class="card-info">
+                    <div class="row">
+                      <div class="col-7">
+                        {% for pt in post.posttag_set.all %}
+                          <a class="color-gray-700 text-sm" href="{% url 'category_tag_posts' pt.tag.id %}">
+                            #{{ pt.tag.name }}
+                          </a>
+                        {% endfor %}
+                      </div>
+                    </div>
+                    <a href="{% url 'post_detail' post.pk %}">
+                      <h5 class="color-white mt-20">{{ post.title }}</h5>
+                    </a>
+                    <div class="row align-items-center mt-25">
+                      <div class="col-12 text-end">
+                        <a class="readmore color-gray-500 text-sm" href="{% url 'post_detail' post.pk %}">
+                          <span>Batafsil</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% empty %}
+              <div class="col-12 text-center">
+                <p class="color-gray-500">Bu kategoriyada hali maqolalar yo'q.</p>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

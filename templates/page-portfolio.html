@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<main class="main">
+  <section class="section-box mt-50">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="color-linear d-inline-block mb-20">Mening loyihalarim</h2>
+      </div>
+
+      <div class="row mt-30">
+        <div class="col-lg-12 text-center">
+          <div class="list-categories">
+            <a href="{% url 'portfolio' %}" class="btn btn-tag bg-gray-800 hover-up mr-10 active">Barchasi</a>
+            {% for cat in categories %}
+              <a href="{% url 'category_posts' cat.id %}" class="btn btn-tag bg-gray-800 hover-up mr-10">
+                {{ cat.name }}
+              </a>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-70">
+        {% for project in projects %}
+        <div class="col-lg-4 col-md-6 mb-30">
+          <div class="card-blog-1 hover-up">
+            <div class="card-image mb-20">
+              <a href="{% url 'portfolio_details' project.pk %}">
+                {% if project.image %}
+                  <img src="{{ project.image.url }}" alt="{{ project.title }}" class="bdrd-16" style="height: 250px; width: 100%; object-fit: cover;">
+                {% endif %}
+              </a>
+            </div>
+            <div class="card-info">
+              <span class="color-gray-700 text-sm"># {{ project.category.name }}</span>
+              <a href="{% url 'portfolio_details' project.pk %}">
+                <h5 class="color-white mt-10">{{ project.title }}</h5>
+              </a>
+              <p class="color-gray-500 mt-15">{{ project.description|truncatewords:12 }}</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock %}

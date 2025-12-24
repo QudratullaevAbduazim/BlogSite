@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    {% if post %}{{ post.title }}{% else %}Maqola topilmadi{% endif %}
+{% endblock %}
+
+{% block content %}
+<main class="main">
+  <div class="cover-home3">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-1"></div>
+        <div class="col-xl-10 col-lg-12">
+
+          {% if post %}
+          <div class="pt-30 border-bottom border-gray-800 pb-20">
+            <div class="box-breadcrumbs">
+              <ul class="breadcrumb">
+                <li><a class="home" href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'post_list' %}">Blog</a></li>
+                <li><span>{{ post.title }}</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="row mt-50 align-items-end">
+            <div class="col-lg-9 col-md-8">
+              <h2 class="color-linear mb-30">{{ post.title }}</h2>
+              <div class="box-author mb-20">
+                <img src="{% static 'assets/imgs/template/favicon.svg' %}" alt="Author">
+                <div class="author-info">
+                  <h6 class="color-gray-700">Abduazim Qudratullaev</h6>
+                  <span class="color-gray-700 text-sm mr-30">{{ post.created_at|date:"d M Y" }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mt-50">
+            <div class="col-lg-8">
+              <div class="content-detail border-gray-800">
+
+                <div class="box-portfolio-frame mb-40 wow animate__animated animate__fadeIn">
+                    <div class="inner-frame">
+                        {% if post.image %}
+                            <img src="{{ post.image.url }}" class="img-styled" alt="{{ post.title }}">
+                        {% else %}
+                            <img src="{% static 'assets/imgs/template/no-image.png' %}" class="img-styled" alt="Rasm mavjud emas">
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="text-lg color-gray-500 mb-50">
+                  {% if post.content %}
+                    {{ post.content|safe }}
+                  {% else %}
+                    <p>Maqola matni hali qo'shilmagan.</p>
+                  {% endif %}
+                </div>
+              </div>
+
+              <div class="box-tags">
+                {% if post.tags.all %}
+                    {% for tag in post.tags.all %}
+                      <a class="btn btn-tags bg-gray-850 border-gray-800 mr-10 hover-up" href="{% url 'tag_posts' tag.id %}">#{{ tag.name }}</a>
+                    {% endfor %}
+                {% else %}
+                    <span class="color-gray-700 text-sm italic">Teglar mavjud emas</span>
+                {% endif %}
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+              <div class="sidebar">
+                <div class="box-sidebar bg-gray-850 border-gray-800">
+                  <div class="head-sidebar">
+                    <h5 class="line-bottom">Kategoriyalar</h5>
+                  </div>
+                  <div class="content-sidebar">
+                    <div class="list-cats">
+                      {% if categories %}
+                          {% for cat in categories %}
+                          <div class="item-cats border-gray-800 wow animate__animated animate__fadeIn">
+                            <div class="cat-left">
+                              <div class="info-cat">
+                                <a class="color-gray-500 text-xl" href="{% url 'category_posts' cat.id %}">{{ cat.name }}</a>
+                              </div>
+                            </div>
+                          </div>
+                          {% endfor %}
+                      {% else %}
+                          <p class="color-gray-700 p-20">Kategoriyalar mavjud emas</p>
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {% else %}
+          <div class="text-center mt-100 mb-100">
+              <h2 class="color-white">Kechirasiz, maqola topilmadi!</h2>
+              <a href="{% url 'index' %}" class="btn btn-linear mt-20">Bosh sahifaga qaytish</a>
+          </div>
+          {% endif %}
+
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<style>
+    /* Siz so'ragan ramka dizayni */
+    .box-portfolio-frame {
+        background: #1b1b1b;
+        padding: 15px;
+        border: 2px solid #333;
+        border-radius: 20px;
+        box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.4);
+    }
+    .inner-frame {
+        border-radius: 12px;
+        overflow: hidden;
+    }
+    .img-styled {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+    }
+</style>
+{% endblock %}

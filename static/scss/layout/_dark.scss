@@ -1,0 +1,231 @@
+/*DARK MODE*/
+
+.theme-day {
+    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: $color-gray-600-day;
+        opacity: 1; /* Firefox */
+    }
+
+    :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: $color-gray-600-day;
+    }
+
+    ::-ms-input-placeholder { /* Microsoft Edge */
+        color: $color-gray-600-day;
+    }
+    .color-white {
+        color: $color-gray-50-day !important;
+    }
+    .color-gray-50 {
+        color: $color-gray-50-day;
+    }
+    .color-gray-100 {
+        color: $color-gray-100-day;
+    }
+    .color-gray-200 {
+        color: $color-gray-200-day;
+    }
+    .color-gray-300 {
+        color: $color-gray-300-day;
+    }
+    .color-gray-400 {
+        color: $color-gray-400-day;
+    }
+    .color-gray-500 {
+        color: $color-gray-500-day !important;
+    }
+    .color-gray-600 {
+        color: $color-gray-600-day;
+    }
+    .color-gray-700 {
+        color: $color-gray-700-day;
+    }
+    .color-gray-800 {
+        color: $color-gray-800-day;
+    }
+    .color-gray-850 {
+        color: $color-gray-850-day;
+    }
+    .color-gray-900 {
+        color: $color-gray-900-day;
+    }
+    .color-gray-950 {
+        color: $color-gray-950-day;
+    }
+    .bg-gray-50 {
+        background-color: $color-gray-50-day;
+    }
+    .bg-gray-100 {
+        background-color: $color-gray-100-day;
+    }
+    .bg-gray-200 {
+        background-color: $color-gray-200-day;
+    }
+    .bg-gray-300 {
+        background-color: $color-gray-300-day;
+    }
+    .bg-gray-400 {
+        background-color: $color-gray-400-day;
+    }
+    .bg-gray-500 {
+        background-color: $color-gray-500-day;
+    }
+    .bg-gray-600 {
+        background-color: $color-gray-600-day;
+    }
+    .bg-gray-700 {
+        background-color: $color-gray-700-day;
+    }
+    .bg-gray-800 {
+        background-color: $color-gray-800-day !important;
+    }
+    .bg-gray-850 {
+        background-color: $color-gray-850-day !important;
+    }
+    .bg-gray-900 {
+        background-color: $color-gray-900-day !important;
+    }
+    .bg-gray-950 {
+        background-color: $color-gray-950-day !important;
+    }
+    .btn.btn-tags {
+        color: $color-gray-950;
+    }
+    .form-control {
+        color: $color-gray-900 !important;
+    }
+    .form-control:focus {
+        border-color: $color-gray-800-day;
+        background-color: $color-gray-850-day;
+    }
+    .btn.btn-border-linear {
+        color: $color-gray-700;
+    }
+    .border-gray-800 {
+        border-color: $color-gray-750-day !important;
+    }
+
+    body {
+        background-color: $color-gray-900-day;
+    }
+    .header .main-menu li ul {
+        background: $color-gray-850-day;
+        border: 1px solid $color-gray-800-day;
+        box-shadow: none;
+        a {
+            color: $color-gray-50-day !important;
+        }
+    }
+    .sticky-bar.stick {
+        border-bottom: 1px solid $color-gray-800-day;
+    }
+    .form-search {
+        background-color: $color-gray-850-day;
+        border:  1px solid $color-gray-800-day;
+        p.color-white {
+            color: $color-gray-50-day !important
+        }
+        .form-control {
+            background-color: $color-gray-900-day;
+            border-color: $color-gray-950-day;
+        }
+    }
+    .main-menu a.color-gray-500 {
+        color: $color-gray-200-day !important;
+    }
+    .logo-day {
+        display: block !important;
+    }
+    .logo-night {
+        display: none;
+    }
+    .switch-button .form-switch .form-check-input {
+        background-image: url(../imgs/template/icons/mode-day.svg);
+    }
+    .pagination {
+        li {
+            a {
+                background-color: $color-gray-300-day;
+            }
+        }
+    }
+    .menu-footer {
+        li {
+            a {
+                color: $color-gray-500-day;
+                &:hover {
+                    color: $color-brand-1;
+                }
+            }
+        }
+    }
+    .inner-subscriber {
+        background: linear-gradient($color-gray-800-day, $color-gray-800-day) padding-box, linear-gradient(to right, $color-gray-800-day, $color-gray-800-day) border-box;
+        border-radius: 8px;
+        border: 1px solid transparent;
+        &:hover {
+            box-shadow: $box-shadow-1-day;
+        }
+    }
+
+    .card-blog-1 {
+        border: 1px solid $color-gray-800-day;
+        background-color: $color-gray-850-day;
+    }
+
+    .card-blog-1 {
+        h4.color-white {
+            color: $color-gray-50-day !important;
+        }
+    }
+    .readmore::before {
+        background-color: #f1f3f7;
+    }
+
+    .card-style-1 {
+        h6.color-white, h4.color-white, h3.color-white  {
+            color: $color-gray-950-day !important;
+        }
+    }
+    .btn.btn-tag {
+        color: $color-gray-200-day;
+    }
+    .hover-neon {
+        transition: all 0.25s cubic-bezier(0.02, 0.01, 0.47, 1);
+        border: 1px solid $color-gray-800-day;
+        background-color: $color-gray-850-day;
+        a.color-gray-500 {
+            color: $color-gray-50-day !important;
+        }
+        &:hover {
+            border: 1px solid $color-gray-800-day;
+            background: $color-gray-900-day !important;
+            box-shadow: none;
+
+        }
+    }
+    .box-topics.box-topics-2 {
+        border: none !important;
+        background: none !important;
+    }
+
+    .box-socials a.bg-gray-800 {
+        background-color: $color-gray-500-day !important;
+    }
+    .list-comments a.text-white {
+        color: $color-gray-500-day !important;
+    }
+    .form-login input.border-gray-800 {
+        border: 1px solid $color-gray-750-day !important;
+    }
+
+    .mobile-header-wrapper-style .mobile-header-wrapper-inner .mobile-header-content-area .mobile-menu-wrap nav .mobile-menu li a, .mobile-account ul li a, .mobile-header-wrapper-style .mobile-header-wrapper-inner .mobile-header-content-area .site-copyright, .mobile-header-wrapper-style .mobile-header-wrapper-inner .mobile-header-content-area .mobile-menu-wrap nav .mobile-menu li.has-children .menu-expand {
+        color: $color-gray-200-day;
+    }
+    .mobile-header-wrapper-style .mobile-header-wrapper-inner .mobile-header-content-area .mobile-menu-wrap nav .mobile-menu li.has-children.active > .menu-expand {
+        background: none;
+    }
+    .mobile-header-wrapper-style .mobile-header-wrapper-inner .mobile-header-content-area .site-copyright a {
+        color: $color-brand-1;
+    }
+}
