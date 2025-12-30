@@ -11,12 +11,19 @@ class IndexView(View):
 
 
 class PortfolioView(View):
-    def get(self, request):
-        projects = Project.objects.all().order_by('-id')
+    def get(self, request, category_id=None):
         categories = CategoryProject.objects.all()
+
+        if category_id:
+            category = get_object_or_404(CategoryProject, id=category_id)
+            projects = Project.objects.filter(category=category).order_by('-id')
+        else:
+            projects = Project.objects.all().order_by('-id')
+
         return render(request, 'page-portfolio.html', {
             'projects': projects,
-            'categories': categories
+            'categories': categories,
+            'current_category': category_id
         })
 
 class PortfolioDetailView(View):

@@ -14,6 +14,8 @@ from pathlib import Path
 
 from django.conf.global_settings import MEDIA_URL, STATICFILES_DIRS
 
+import conf
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -27,7 +29,10 @@ SECRET_KEY = 'django-insecure-sp1k#22cmyl4z5s33bo75b2f!n3g)pqbdo@9qh1+poi5y*w8xz
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'qudratullaeev.pythonanywhere.com'
+]
+
 
 
 # Application definition
@@ -125,3 +130,4 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+

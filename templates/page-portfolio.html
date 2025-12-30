@@ -12,19 +12,19 @@
       <div class="row mt-30">
         <div class="col-lg-12 text-center">
           <div class="list-categories">
-            <a href="{% url 'portfolio' %}" class="btn btn-tag bg-gray-800 hover-up mr-10 active">Barchasi</a>
+            <button class="btn btn-tag bg-gray-800 active filter-btn" data-filter="all">Barchasi</button>
             {% for cat in categories %}
-              <a href="{% url 'category_posts' cat.id %}" class="btn btn-tag bg-gray-800 hover-up mr-10">
+              <button class="btn btn-tag bg-gray-800 filter-btn" data-filter="{{ cat.id }}">
                 {{ cat.name }}
-              </a>
+              </button>
             {% endfor %}
           </div>
         </div>
       </div>
 
-      <div class="row mt-70">
+      <div class="row mt-70" id="project-container">
         {% for project in projects %}
-        <div class="col-lg-4 col-md-6 mb-30">
+        <div class="col-lg-4 col-md-6 mb-30 project-item" data-category="{{ project.category.id }}">
           <div class="card-blog-1 hover-up">
             <div class="card-image mb-20">
               <a href="{% url 'portfolio_details' project.pk %}">
@@ -35,16 +35,55 @@
             </div>
             <div class="card-info">
               <span class="color-gray-700 text-sm"># {{ project.category.name }}</span>
-              <a href="{% url 'portfolio_details' project.pk %}">
-                <h5 class="color-white mt-10">{{ project.title }}</h5>
-              </a>
+              <h5 class="color-white mt-10">{{ project.title }}</h5>
               <p class="color-gray-500 mt-15">{{ project.description|truncatewords:12 }}</p>
             </div>
           </div>
         </div>
         {% endfor %}
+
+        <div id="no-projects-msg" class="col-12 text-center mt-50" style="display: none;">
+          <h4 class="color-gray-500">Ushbu kategoriyada loyihalar mavjud emas.</h4>
+        </div>
       </div>
     </div>
   </section>
 </main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const buttons = document.querySelectorAll('.filter-btn');
+    const items = document.querySelectorAll('.project-item');
+    const noMsg = document.getElementById('no-projects-msg');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Aktiv klassni boshqarish
+            buttons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            const filterValue = button.getAttribute('data-filter');
+            let visibleCount = 0;
+
+            items.forEach(item => {
+                const itemCategory = item.getAttribute('data-category');
+
+                if (filterValue === 'all' || filterValue === itemCategory) {
+                    item.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            // Agar birorta ham loyiha ko'rinmasa, xabarni ko'rsatish
+            if (visibleCount === 0) {
+                noMsg.style.display = 'block';
+            } else {
+                noMsg.style.display = 'none';
+            }
+        });
+    });
+});
+</script>
 {% endblock %}
