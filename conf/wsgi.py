@@ -1,7 +1,6 @@
 import os
 import sys
 
-# Loyihangizning asosiy papkasi
 path = '/home/Qudratullaeev/BlogSite'
 if path not in sys.path:
     sys.path.append(path)
