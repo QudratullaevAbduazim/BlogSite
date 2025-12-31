@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 import os
 from pathlib import Path
 
-from django.conf.global_settings import MEDIA_URL, STATICFILES_DIRS
+from django.conf.global_settings import MEDIA_URL, STATICFILES_DIRS, MEDIA_ROOT
 
 import conf
 
@@ -120,14 +120,8 @@ USE_TZ = True
 
 
 
-# STATIC_URL mavjud bo'lsa, unga tegmang, bo'lmasa qo'shing
 STATIC_URL = '/static/'
-
-# Mana shu qator xatolikni yo'qotadi:
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-# Agar loyihangizda 'static' papkasi bo'lsa, buni ham qo'shing:
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = 'media'
