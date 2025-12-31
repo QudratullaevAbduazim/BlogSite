@@ -17,7 +17,8 @@ SECRET_KEY = os.environ.get(
     "django-insecure-dev-key"
 )
 
-DEBUG = False
+DEBUG = True
+
 
 ALLOWED_HOSTS = [
     "127.0.0.1",
@@ -150,3 +151,4 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # ======================
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
