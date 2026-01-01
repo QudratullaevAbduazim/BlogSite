@@ -142,4 +142,59 @@
     </div>
   </div>
 </main>
+<script><script>
+let soundEnabled = false;
+let lastSpokenText = "";
+
+// 1️⃣ USER INTERACTION SHART
+document.addEventListener("click", () => {
+  soundEnabled = true;
+}, { once: true });
+
+// 2️⃣ OVOZ FUNKSIYA
+function speakText(text) {
+  if (!soundEnabled) return;
+  if (!window.speechSynthesis) return;
+  if (text === lastSpokenText) return;
+
+  lastSpokenText = text;
+
+  speechSynthesis.cancel();
+  const msg = new SpeechSynthesisUtterance(text);
+  msg.lang = "en-US";
+  msg.rate = 0.9;
+  msg.pitch = 1;
+
+  speechSynthesis.speak(msg);
+}
+
+// 3️⃣ TYPEWRITE'NI KUZATAMIZ
+window.addEventListener("load", () => {
+  const target = document.querySelector(".typewrite .wrap");
+  if (!target) return;
+
+  const observer = new MutationObserver(() => {
+    const text = target.textContent.trim();
+
+    // FAQAT TO‘LIQ SO‘Z BO‘LGANDA
+    const fullWords = [
+      "Abduazim Qudratullaev",
+      "Backend Developer",
+      "student of Najot Ta`lim"
+    ];
+
+    if (fullWords.includes(text)) {
+      speakText(text);
+    }
+  });
+
+  observer.observe(target, {
+    childList: true,
+    characterData: true,
+    subtree: true
+  });
+});
+</script>
+
+
 {% endblock %}
